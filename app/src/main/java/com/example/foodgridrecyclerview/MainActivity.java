@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     CardView Card1,Card2;
     public CoordinatorLayout MainCoordinator;
     Snackbar snackbar;
+    List<String> FoodCart;
     View snackview;
     int quantity = 0;
     int row_index = -1;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Card2 = findViewById(R.id.card2);
         Card1.setBackgroundResource(R.drawable.cardnormalbg);
         Card2.setBackgroundResource(R.drawable.cardnormalbg);
+        FoodCart = new ArrayList<>();
 
         FoodCatList = new ArrayList<>();
         DrinkList = new ArrayList<>();
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         FoodCatList.add(
                 new foodcategories(
                         "Dessert",
-                        R.drawable.desertlogo
+                        R.drawable.dessertlogoblack
                 )
         );
         FoodCatList.add(
@@ -82,286 +84,286 @@ public class MainActivity extends AppCompatActivity {
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
         DrinkList.add(
                 new FoodItems(
                         "Cold Drink",
-                        "20"
+                        "20",0
                 )
         );
 
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken",
-                        "50"
+                        "50",0
                 )
         );
         MeatList.add(
                 new FoodItems(
                         "Chicken tandoor",
-                        "50"
+                        "50",0
                 )
         );
 
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
         SaladsList.add(
                 new FoodItems(
                         "Green Salad",
-                        "30"
+                        "30",0
                 )
         );
 
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
         DessertList.add(
                 new FoodItems(
                         "Vanilla",
-                        "10"
+                        "10",0
                 )
         );
 
@@ -482,8 +484,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull final FoodItemsHolder holder, int position) {
-            FoodItems product = foodItemsList.get(position);
-            holder.ItemName.setText(product.getItemName());
+
+            final FoodItems product = foodItemsList.get(position);
+            final String FoodItemName;
+            FoodItemName = product.getItemName();
+                    holder.ItemName.setText(product.getItemName());
             holder.ItemName.setTextColor(Color.parseColor("#000000"));
             holder.ItemPrice.setText("$"+product.getPrice());
             final int s = Integer.parseInt(product.getPrice().toString());
@@ -496,6 +501,24 @@ public class MainActivity extends AppCompatActivity {
                     String TotalPlus = Integer.toString(quantity);
                     //Toast.makeText(thiscontext,"Your Bill is $"+TotalPlus,Toast.LENGTH_SHORT).show();
                     snackbar.setText("Your Bill is $"+TotalPlus);
+                    int cnt = product.getItemCount();
+                    product.setItemCount(cnt+1);
+                    int ans = cnt+1;
+                    String anss = Integer.toString(ans);
+                    holder.ItemCount.setText(anss);
+
+                   /* snackbar.setAction("View Cart", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int j = FoodCart.size();
+                            String ItemCount = Integer.toString(j);
+                            snackbar.setText("You have "+ItemCount+" items in your cart ");
+                            snackbar.show();
+                        }
+                    });
+                    snackbar.show();
+                    snackbar.setActionTextColor(Color.parseColor("#000000"));*/
+                    FoodCart.add(FoodItemName);
                     snackview.setVisibility(View.VISIBLE);
                     snackview.setBackgroundResource(R.drawable.cardonclickbg);
                     snackbar.show();
@@ -507,22 +530,36 @@ public class MainActivity extends AppCompatActivity {
             holder.MinusButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    quantity-=s;
-                    if(quantity>=0){
-                    String TotalMinus = Integer.toString(quantity);
-                    snackbar.setText("Your bill is $"+TotalMinus);
-                        snackview.setVisibility(View.VISIBLE);
-                        snackview.setBackgroundResource(R.drawable.cardonclickbg);
-                    snackbar.show();
-                    if(quantity==0){snackbar.dismiss();
-                        ViewGroup.MarginLayoutParams cardViewMarginParams = (ViewGroup.MarginLayoutParams) Card2.getLayoutParams();
-                        cardViewMarginParams.setMargins(0, 0, 0, 0);
-                        Card2.requestLayout();
+
+                    boolean checkfooditem = FoodCart.contains(FoodItemName);
+                    if(checkfooditem&&product.getItemCount()>0) {
+                        if (quantity >= 0) {
+                            FoodCart.remove(FoodItemName);
+                            quantity -= s;
+                            int cnt = product.getItemCount();
+                            product.setItemCount(cnt-1);
+                            if(cnt>0){
+                                int ans = cnt-1;
+                                String anss = Integer.toString(ans);
+                                holder.ItemCount.setText(anss);}
+                            String TotalMinus = Integer.toString(quantity);
+                            snackbar.setText("Your bill is $" + TotalMinus);
+                            snackview.setVisibility(View.VISIBLE);
+                            snackview.setBackgroundResource(R.drawable.cardonclickbg);
+                            snackbar.show();
+                            if (quantity == 0) {
+                                snackbar.dismiss();
+                                ViewGroup.MarginLayoutParams cardViewMarginParams = (ViewGroup.MarginLayoutParams) Card2.getLayoutParams();
+                                cardViewMarginParams.setMargins(0, 0, 0, 0);
+                                Card2.requestLayout();
+                            }
+                        } else {
+                            quantity += s;
+                        }
                     }
-                    }
-                    else{quantity+=s;}
                 }
             });
+
         }
         @Override
         public int getItemCount() {
@@ -530,7 +567,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public class FoodItemsHolder extends RecyclerView.ViewHolder {
-            TextView ItemName,ItemPrice;
+            TextView ItemName,ItemPrice,ItemCount;
             CardView FoodItemCard;
             Button PlusButton,MinusButton;
             CoordinatorLayout FoodItemsCordinator;
@@ -542,6 +579,7 @@ public class MainActivity extends AppCompatActivity {
                 PlusButton = itemView.findViewById(R.id.plusbtn);
                 MinusButton = itemView.findViewById(R.id.minusbtn);
                 FoodItemsCordinator = itemView.findViewById(R.id.co_ordinator_main);
+                ItemCount = itemView.findViewById(R.id.fooditemcount);
             }
         }
     }

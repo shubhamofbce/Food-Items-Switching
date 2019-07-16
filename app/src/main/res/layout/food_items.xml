@@ -39,8 +39,18 @@
                 android:text="-"
                 android:textColor="#000"
                 android:textStyle="bold"
-                android:layout_marginEnd="10dp"
                 android:background="@drawable/bgonclick"/>
+            <Button
+                android:id="@+id/fooditemcount"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:text="0"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:background="@drawable/bgonclick"
+                android:clickable="false"/>
             <Button
                 android:id="@+id/plusbtn"
                 android:layout_width="25dp"
